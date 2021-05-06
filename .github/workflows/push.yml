@@ -1,0 +1,36 @@
+on:
+  push:
+  pull_request:
+name: Main workflow
+jobs:
+  mypy:
+    name: mypy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+      - uses: snok/install-poetry@v1.1.2
+      - run: poetry install
+      - run: poetry run mypy .
+
+  pytest:
+    name: pytest ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.6', '3.7', '3.8', '3.9']
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: 'x64'
+      - uses: snok/install-poetry@v1.1.2
+      - run: poetry install
+      - run: poetry run pytest --cov=mypy_silent
+      - uses: codecov/codecov-action@v1.3.1
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}

@@ -1,0 +1,27 @@
+[tool.poetry]
+authors = ["Wu Haotian <whtsky@gmail.com>"]
+description = "Silence mypy by adding or removing code comments"
+license = "MIT"
+name = "mypy-silent"
+packages = [
+  {include = "mypy_silent"},
+  {include = "mypy_silent/py.typed"},
+]
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+typer = "^0.3.2"
+typing-extensions = "^3.7.4;python<3.8"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.812"
+pytest = "^6.2.2"
+pytest-cov = "^2.11.1"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.poetry.scripts]
+mypy-silent = "mypy_silent.cli:cli"
