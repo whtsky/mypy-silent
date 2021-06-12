@@ -31,6 +31,6 @@ jobs:
       - uses: snok/install-poetry@v1.1.6
       - run: poetry install
       - run: poetry run pytest --cov=mypy_silent
-      - uses: codecov/codecov-action@v1.5.1
+      - uses: codecov/codecov-action@v1.5.2
         with:
           token: ${{secrets.CODECOV_TOKEN}}
