@@ -7,7 +7,7 @@ packages = [
   {include = "mypy_silent"},
   {include = "mypy_silent/py.typed"},
 ]
-version = "0.2.0"
+version = "0.2.1"
 
 [tool.poetry.dependencies]
 python = "^3.6"
