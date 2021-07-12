@@ -1,8 +1,8 @@
 import re
-from typing import Iterable
+from typing import Final, Iterable
 from typing import NamedTuple
 
-UNUSED_IGNORE_MESSAGE = "error: unused 'type: ignore' comment"
+UNUSED_IGNORE_MESSAGES: Final = {"error: unused 'type: ignore' comment", 'error: unused "type: ignore" comment'}
 
 
 class FilePosition(NamedTuple):

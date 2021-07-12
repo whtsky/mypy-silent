@@ -18,3 +18,13 @@ mypy . # Whoa, lots of type error!
 mypy . | mypy-silent # mypy-silent will add or remove `# type: ignore` commends to your code
 mypy . # mypy should report 0 errors now.
 ```
+
+## Changelog
+
+### v0.2.0
+
+- Support parsing mypy >=0.900 messages
+
+### v0.1.0
+
+- Initial release

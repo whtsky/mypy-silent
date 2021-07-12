@@ -7,7 +7,7 @@ from mypy_silent.maho import add_type_ignore_comment
 from mypy_silent.maho import remove_type_ignore_comment
 from mypy_silent.parser import FilePosition
 from mypy_silent.parser import get_info_form_mypy_output
-from mypy_silent.parser import UNUSED_IGNORE_MESSAGE
+from mypy_silent.parser import UNUSED_IGNORE_MESSAGES
 from mypy_silent.utils import get_lines
 
 
@@ -26,7 +26,7 @@ def mypy_silent(
             file_contents = f.readlines()
 
         old_content = file_contents[info.position.line - 1]
-        if info.message == UNUSED_IGNORE_MESSAGE:
+        if info.message in UNUSED_IGNORE_MESSAGES:
             new_content = remove_type_ignore_comment(old_content)
         else:
             new_content = add_type_ignore_comment(old_content)
