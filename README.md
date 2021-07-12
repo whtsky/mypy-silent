@@ -21,6 +21,10 @@ mypy . # mypy should report 0 errors now.
 
 ## Changelog
 
+### v0.2.1
+
+- Fix import error on Python < 3.8
+
 ### v0.2.0
 
 - Support parsing mypy >=0.900 messages

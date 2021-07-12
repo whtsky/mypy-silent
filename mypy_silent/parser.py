@@ -1,8 +1,10 @@
 import re
-from typing import Final, Iterable
+from typing import Iterable
 from typing import NamedTuple
+from typing import FrozenSet
+from typing_extensions import Final
 
-UNUSED_IGNORE_MESSAGES: Final = {"error: unused 'type: ignore' comment", 'error: unused "type: ignore" comment'}
+UNUSED_IGNORE_MESSAGES: Final[FrozenSet[str]] = frozenset({"error: unused 'type: ignore' comment", 'error: unused "type: ignore" comment'})
 
 
 class FilePosition(NamedTuple):
