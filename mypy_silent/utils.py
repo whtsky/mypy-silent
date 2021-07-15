@@ -6,5 +6,5 @@ from typing import Optional
 def get_lines(mypy_output_file: Optional[str]) -> Iterable[str]:
     if not mypy_output_file:
         return sys.stdin
-    with open(mypy_output_file, "r") as f:
+    with open(mypy_output_file) as f:
         return f.readlines()
