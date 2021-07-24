@@ -22,7 +22,7 @@ def mypy_silent(
     for info in infos:
         if info.position in processed:
             continue
-        with open(info.position.filename, "r") as f:
+        with open(info.position.filename) as f:
             file_contents = f.readlines()
 
         old_content = file_contents[info.position.line - 1]
