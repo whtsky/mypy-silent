@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: '3.8'
           architecture: 'x64'
-      - uses: snok/install-poetry@v1.1.6
+      - uses: snok/install-poetry@v1.2.0
       - run: poetry install
       - run: poetry run mypy .
 
@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: 'x64'
-      - uses: snok/install-poetry@v1.1.6
+      - uses: snok/install-poetry@v1.2.0
       - run: poetry install
       - run: poetry run pytest --cov=mypy_silent
       - uses: codecov/codecov-action@v1.5.2
