@@ -15,7 +15,13 @@ from mypy_silent.maho import remove_type_ignore_comment
     ),
 )
 def test_add_type_ignore_comment(input: str, output: str) -> None:
-    assert add_type_ignore_comment(input) == output
+    assert add_type_ignore_comment(input, error_code=None) == output
+
+
+def test_add_type_ignore_comment_with_error_code() -> None:
+    input = "host, port, protocol = m.groups()\r\n"
+    output = "host, port, protocol = m.groups()  # type: ignore[misc]\r\n"
+    assert add_type_ignore_comment(input, error_code="misc") == output
 
 
 @pytest.mark.parametrize(
