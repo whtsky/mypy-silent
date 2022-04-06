@@ -21,6 +21,10 @@ mypy . # mypy should report 0 errors now.
 
 ## Changelog
 
+### v0.3.0
+
+- Add error code to ignore message comment.Instead of just adding `# type: ignore` we now add `# type: ignore[misc]` [#41](https://github.com/whtsky/mypy-silent/pull/41)
+
 ### v0.2.1
 
 - Fix import error on Python < 3.8

@@ -6,7 +6,9 @@ from typing import Optional
 
 from typing_extensions import Final
 
-UNUSED_IGNORE_MESSAGES: Final[FrozenSet[str]] = frozenset({"error: unused 'type: ignore' comment", 'error: unused "type: ignore" comment'})
+UNUSED_IGNORE_MESSAGES: Final[FrozenSet[str]] = frozenset(
+    {"error: unused 'type: ignore' comment", 'error: unused "type: ignore" comment'}
+)
 
 
 class FilePosition(NamedTuple):
@@ -20,7 +22,9 @@ class MypyMessage(NamedTuple):
     error_code: Optional[str]
 
 
-_mypy_output_re = re.compile(r"^(?P<filename>[^:]+):(?P<line>\d+):(?P<message>.+?)(\[(?P<error_code>[a-z-]+)\])?$")
+_mypy_output_re = re.compile(
+    r"^(?P<filename>[^:]+):(?P<line>\d+):(?P<message>.+?)(\[(?P<error_code>[a-z-]+)\])?$"
+)
 
 
 def get_info_from_mypy_output(lines: Iterable[str]) -> Iterable[MypyMessage]:
