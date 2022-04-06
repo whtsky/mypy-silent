@@ -12,7 +12,11 @@ def add_type_ignore_comment(line: str, error_code: Optional[str]) -> str:
     if "# noqa" in line:
         return line.replace("# noqa", f"{type_ignore_comment} # noqa", 1)
     content_without_crlf = line.rstrip("\r\n")
-    return content_without_crlf + f"  {type_ignore_comment}" + line[len(content_without_crlf) :]
+    return (
+        content_without_crlf
+        + f"  {type_ignore_comment}"
+        + line[len(content_without_crlf) :]
+    )
 
 
 def remove_type_ignore_comment(line: str) -> str:

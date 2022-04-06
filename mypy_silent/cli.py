@@ -29,7 +29,9 @@ def mypy_silent(
         if info.message in UNUSED_IGNORE_MESSAGES:
             new_content = remove_type_ignore_comment(old_content)
         else:
-            new_content = add_type_ignore_comment(old_content, error_code=info.error_code)
+            new_content = add_type_ignore_comment(
+                old_content, error_code=info.error_code
+            )
         file_contents[info.position.line - 1] = new_content
         with open(info.position.filename, "w") as f:
             f.writelines(file_contents)
