@@ -32,6 +32,8 @@ def test_add_type_ignore_comment_with_error_code() -> None:
             "        host, port, protocol = m.groups()\r\n",
         ),
         ("# type: ignore. very good", "#. very good"),
+        ("# type: ignore[misc]. very good", "#. very good"),
+        ("# type: ignore[misc, arg-type]. very good", "#. very good"),
     ),
 )
 def test_remove_type_ignore_comment(input: str, output: str) -> None:
