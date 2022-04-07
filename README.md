@@ -21,6 +21,10 @@ mypy . # mypy should report 0 errors now.
 
 ## Changelog
 
+### v0.4.0
+
+- Add support for removing unused type ignores with error codes [#42](https://github.com/whtsky/mypy-silent/pull/42)
+
 ### v0.3.0
 
 - Add error code to ignore message comment.Instead of just adding `# type: ignore` we now add `# type: ignore[misc]` [#41](https://github.com/whtsky/mypy-silent/pull/41)
