@@ -25,7 +25,7 @@ def add_type_ignore_comment(line: str, error_code: Optional[str]) -> str:
         content_without_crlf = _type_ignore_re.sub("", content_without_crlf)
 
     if error_codes:
-        type_ignore_comment += f"[{', '.join(error_codes)}]"
+        type_ignore_comment += f"[{', '.join(sorted(error_codes))}]"
 
     # Workarounds for https://mypy.readthedocs.io/en/stable/common_issues.html#silencing-linters
     if "# noqa" in content_without_crlf:

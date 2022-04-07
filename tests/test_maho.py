@@ -71,7 +71,7 @@ def test_add_type_ignore_with_existing_comment_with_code() -> None:
 
     assert (
         add_type_ignore_comment(input, error_code="arg-type")
-        == "host, port, protocol = m.groups()  # type: ignore[misc, arg-type]\r\n"
+        == "host, port, protocol = m.groups()  # type: ignore[arg-type, misc]\r\n"
     )
     assert (
         add_type_ignore_comment(input, error_code=None)
