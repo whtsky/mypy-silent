@@ -8,6 +8,7 @@ packages = [
   {include = "mypy_silent/py.typed"},
 ]
 version = "0.4.0"
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.6"
