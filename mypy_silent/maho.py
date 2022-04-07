@@ -1,4 +1,8 @@
+import re
 from typing import Optional
+
+
+_type_ignore_re = re.compile(r"# type: ignore(\[[a-z, \-]+\])?")
 
 
 def add_type_ignore_comment(line: str, error_code: Optional[str]) -> str:
@@ -22,9 +26,6 @@ def add_type_ignore_comment(line: str, error_code: Optional[str]) -> str:
 def remove_type_ignore_comment(line: str) -> str:
     content_without_crlf = line.rstrip("\r\n")
     return (
-        content_without_crlf.replace("# type: ignore", "#")
-        .rstrip()
-        .rstrip("#")
-        .rstrip()
+        _type_ignore_re.sub("#", content_without_crlf).rstrip().rstrip("#").rstrip()
         + line[len(content_without_crlf) :]
     )
