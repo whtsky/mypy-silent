@@ -15,7 +15,7 @@ jobs:
       - uses: snok/install-poetry@v1.3.1
       - run: poetry run pip install twine
       - run: poetry build
-      - run: twine check --strict dist/*
+      - run: poetry run twine check --strict dist/*
 
   mypy:
     name: mypy
