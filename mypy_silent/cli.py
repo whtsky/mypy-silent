@@ -20,8 +20,6 @@ def mypy_silent(
     infos = get_info_from_mypy_output(lines)
     processed: Set[FilePosition] = set()
     for info in infos:
-        if info.position in processed:
-            continue
         with open(info.position.filename) as f:
             file_contents = f.readlines()
 
