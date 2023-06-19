@@ -18,7 +18,7 @@ typing-extensions = "^3.7.4;python<3.8"
 [tool.poetry.dev-dependencies]
 mypy = "^0.812"
 pytest = "^6.2.5"
-pytest-cov = "^3.0.0"
+pytest-cov = "^4.1.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
