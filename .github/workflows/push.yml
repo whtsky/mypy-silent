@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: '3.10'
           architecture: 'x64'
-      - uses: snok/install-poetry@v1.3.1
+      - uses: snok/install-poetry@v1.3.4
       - run: poetry run pip install twine
       - run: poetry build
       - run: poetry run twine check --strict dist/*
@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: '3.10'
           architecture: 'x64'
-      - uses: snok/install-poetry@v1.3.1
+      - uses: snok/install-poetry@v1.3.4
       - run: poetry install
       - run: poetry run mypy .
 
@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: 'x64'
-      - uses: snok/install-poetry@v1.3.1
+      - uses: snok/install-poetry@v1.3.4
       - run: poetry install
       - run: poetry run pytest --cov=mypy_silent --cov-report=xml
       - uses: codecov/codecov-action@v3.1.0
