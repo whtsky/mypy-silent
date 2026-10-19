@@ -1,7 +1,6 @@
 import re
 from typing import Optional
 
-
 _type_ignore_re = re.compile(r"# type: ignore(\[[a-z, \-]+\])?")
 
 
